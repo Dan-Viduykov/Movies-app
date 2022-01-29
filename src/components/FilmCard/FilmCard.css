@@ -2,9 +2,7 @@
   width: 450px;
   height: 280px;
   display: flex;
-}
-
-.film-card__image {
+  overflow: hidden;
 }
 
 .film-card__image img {
