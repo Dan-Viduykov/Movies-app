@@ -1,9 +1,12 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { format } from 'date-fns';
 import './FilmCard.css';
 
 export default function FilmCard({ data }) {
   const { title, release_date: releaseDate, overview, poster_path: posterPath } = data;
+
+  const date = format(new Date(releaseDate), 'MMMM i, y');
 
   return (
     <div className="film-card">
@@ -12,7 +15,7 @@ export default function FilmCard({ data }) {
       </div>
       <div className="film-card__content">
         <h5 className="film-card__title">{title}</h5>
-        <p className="film-card__date">{releaseDate}</p>
+        <p className="film-card__date">{date}</p>
         <ul className="film-card__genres">
           <li>Action</li>
           <li>Drama</li>
