@@ -8,6 +8,10 @@ export default function FilmCard({ data }) {
 
   const date = format(new Date(releaseDate), 'MMMM i, y');
 
+  function minify(text, length) {
+    return `${text.slice(0, text.indexOf(' ', length))} ...`;
+  }
+
   return (
     <div className="film-card">
       <div className="film-card__image">
@@ -20,7 +24,7 @@ export default function FilmCard({ data }) {
           <li>Action</li>
           <li>Drama</li>
         </ul>
-        <p className="film-card__overview">{overview}</p>
+        <p className="film-card__overview">{minify(overview, 100)}</p>
       </div>
     </div>
   );
