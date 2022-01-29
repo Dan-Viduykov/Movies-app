@@ -1,0 +1,11 @@
+.films-list {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 40px;
+    justify-content: space-around;
+    align-content: space-around;
+}
+
+.films-list__item {
+    margin: 0 auto;
+}
