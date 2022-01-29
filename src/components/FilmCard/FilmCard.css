@@ -1,59 +1,59 @@
 .film-card {
-    width: 450px;
-    height: 280px;
-    display: flex;
+  width: 450px;
+  height: 280px;
+  display: flex;
 }
 
 .film-card__image {
 }
 
 .film-card__image img {
-    width: 180px;
-    height: 100%;
-    object-fit: cover;
+  width: 180px;
+  height: 100%;
+  object-fit: cover;
 }
 
 .film-card__content {
-    padding: 10px 20px;
-    display: flex;
-    flex-direction: column;
+  padding: 10px 20px;
+  display: flex;
+  flex-direction: column;
 }
 
 .film-card__title {
-    margin-bottom: 7px;
-    font-size: 20px;
-    line-height: 28px;
+  margin-bottom: 7px;
+  font-size: 20px;
+  line-height: 28px;
 }
 
 .film-card__date {
-    margin-bottom: 7px;
-    font-size: 12px;
-    line-height: 22px;
-    color: #827E7E;
+  margin-bottom: 7px;
+  font-size: 12px;
+  line-height: 22px;
+  color: #827e7e;
 }
 
 .film-card__genres {
-    margin-bottom: 7px;
-    display: flex;
-    flex-wrap: wrap;
+  margin-bottom: 7px;
+  display: flex;
+  flex-wrap: wrap;
 }
 
 .film-card__genres li {
-    padding: 3px 5px;
-    margin-right: 8px;
-    background: #FAFAFA;
-    border: 1px solid #D9D9D9;
-    border-radius: 2px;
-    font-size: 12px;
-    line-height: 14px;
-    color: rgba(0, 0, 0, 0.65);
+  padding: 3px 5px;
+  margin-right: 8px;
+  background: #fafafa;
+  border: 1px solid #d9d9d9;
+  border-radius: 2px;
+  font-size: 12px;
+  line-height: 14px;
+  color: rgba(0, 0, 0, 0.65);
 }
 
 .film-card__genres li:last-child {
-    margin-right: 0;
+  margin-right: 0;
 }
 
 .film-card__overview {
-    font-size: 12px;
-    line-height: 22px;
+  font-size: 12px;
+  line-height: 22px;
 }
