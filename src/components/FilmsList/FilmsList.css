@@ -1,4 +1,6 @@
 .films-list {
+  max-width: 940px;
+  margin: 0 auto;
   display: grid;
   grid-template-columns: 1fr 1fr;
   grid-gap: 40px;
@@ -6,6 +8,8 @@
   align-content: space-around;
 }
 
-.films-list__item {
-  margin: 0 auto;
+.wrap .spinner {
+  position: absolute;
+  top: 500px;
+  left: 50%;
 }

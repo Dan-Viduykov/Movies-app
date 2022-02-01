@@ -1,10 +1,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { format } from 'date-fns';
+import { Rate } from 'antd';
 import './FilmCard.css';
 
 export default function FilmCard({ data }) {
-  const { title, release_date: releaseDate, overview, poster_path: posterPath } = data;
+  const { title, release_date: releaseDate, overview, poster_path: posterPath, vote_average: average } = data;
 
   const date = format(new Date(releaseDate), 'MMMM i, y');
 
@@ -25,6 +26,10 @@ export default function FilmCard({ data }) {
           <li>Drama</li>
         </ul>
         <p className="film-card__overview">{minify(overview, 100)}</p>
+        <div className="film-card__average">
+          <p>{average}</p>
+        </div>
+        <Rate className="film-card__rate" />
       </div>
     </div>
   );
@@ -37,6 +42,7 @@ FilmCard.defaultProps = {
     overview: 'no description',
     poster_path:
       'https://yandex.ru/images/search?from=tabbar&text=placeholder&pos=0&img_url=https%3A%2F%2Fpbs.twimg.com%2Fmedia%2FCpXpQ22WAAAzv-Y.jpg&rpt=simage',
+    vote_average: '0.0',
   },
 };
 
@@ -46,5 +52,6 @@ FilmCard.propTypes = {
     release_date: PropTypes.string,
     overview: PropTypes.string,
     poster_path: PropTypes.string,
+    vote_average: PropTypes.number,
   }),
 };

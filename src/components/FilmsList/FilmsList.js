@@ -1,5 +1,6 @@
 /* eslint-disable react/prefer-stateless-function */
 import React, { Component } from 'react';
+import { Spin, Alert } from 'antd';
 import FilmCard from '../FilmCard';
 import MoviesService from '../../services/MoviesService';
 import './FilmsList.css';
@@ -11,6 +12,8 @@ export default class FilmsList extends Component {
     super(props);
     this.state = {
       films: [],
+      loading: true,
+      error: false,
     };
   }
 
@@ -18,14 +21,28 @@ export default class FilmsList extends Component {
     this.moviesService
       .searchMovies()
       .then((response) => response.results)
-      .then((data) => {
-        const filmsList = data.map((film) => this.createCard(film));
-
-        this.setState({
-          films: filmsList,
-        });
-      });
+      .then(this.createList)
+      .catch(this.onError);
   }
+
+  createList = (data) => {
+    const filmsList = data.map((film) => this.createCard(film));
+
+    this.setState({
+      films: filmsList,
+      loading: false,
+    });
+  };
+
+  onError = (err) => {
+    // eslint-disable-next-line no-console
+    console.log(err);
+
+    this.setState({
+      loading: false,
+      error: true,
+    });
+  };
 
   createCard(film) {
     const { id, ...data } = film;
@@ -38,8 +55,24 @@ export default class FilmsList extends Component {
   }
 
   render() {
-    const { films } = this.state;
+    const { films, loading, error } = this.state;
 
-    return <ul className="films-list">{films}</ul>;
+    const hasDate = !(loading || error);
+
+    // eslint-disable-next-line no-alert
+    const errorMessage = error ? (
+      <Alert message="Error" description="This is an error message about copywriting." type="error" showIcon />
+    ) : null;
+
+    const spinner = loading ? <Spin className="spinner" size="large" /> : null;
+    const content = hasDate ? <ul className="films-list">{films}</ul> : null;
+
+    return (
+      <div className="wrap">
+        {errorMessage}
+        {spinner}
+        {content}
+      </div>
+    );
   }
 }
