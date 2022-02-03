@@ -9,7 +9,8 @@
 }
 
 .wrap .spinner {
+  width: inherit;
+  height: 100vh;
   position: absolute;
-  top: 500px;
-  left: 50%;
+  justify-content: center;
 }

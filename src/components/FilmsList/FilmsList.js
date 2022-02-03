@@ -61,7 +61,7 @@ export default class FilmsList extends Component {
 
     // eslint-disable-next-line no-alert
     const errorMessage = error ? (
-      <Alert message="Error" description="This is an error message about copywriting." type="error" showIcon />
+      <Alert message="Error" description="This is an error message about copywriting." type="error" showIcon closable />
     ) : null;
 
     const spinner = loading ? <Spin className="spinner" size="large" /> : null;
